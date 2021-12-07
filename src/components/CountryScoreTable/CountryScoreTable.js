@@ -4,8 +4,10 @@ import { Wrapper } from "./CountryScoreTable.styles";
 // hooks
 import { useState } from "react";
 
+// data
+import allCountryScores from "../../scores";
+
 // components
-import allCountryScores from "../../../src/scores";
 import PlayerScore from "../PlayerScore/PlayerScore";
 
 const CountryScoreTable = () => {
