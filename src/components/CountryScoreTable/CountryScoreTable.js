@@ -12,15 +12,20 @@ const CountryScoreTable = () => {
         .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
         .map((country) => {
           return (
-            <div className="scoresTable">
-              <h2 className="countryName">{country.name}</h2>
+            <div className='scoresTable'>
+              <h2 className='countryName'>{country.name}</h2>
               <table>
                 <tbody>
-                  {country.scores.map((score) => {
-                    return (
-                      <PlayerScore playerName={score.n} playerScore={score.s} />
-                    );
-                  })}
+                  {country.scores
+                    .sort((a, b) => parseFloat(b.s) - parseFloat(a.s))
+                    .map((score) => {
+                      return (
+                        <PlayerScore
+                          playerName={score.n}
+                          playerScore={score.s}
+                        />
+                      );
+                    })}
                 </tbody>
               </table>
             </div>
